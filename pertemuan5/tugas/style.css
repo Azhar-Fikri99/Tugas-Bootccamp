@@ -1,0 +1,167 @@
+/* kita reset Default style */
+
+*{
+    margin: 0;
+    padding: 0;
+}
+
+body{
+    /* background-color: #ddd; */
+}
+
+/* background */
+.latar{
+    background-color: #ddd ;
+    width: 900px;
+    margin: 30px auto;
+}
+
+
+/* bagian atas */
+header{
+    display: flex;
+    background-color: #fff;
+    width: 800px;
+    margin: 20px auto;
+    justify-content: space-around;
+    box-sizing: border-box;
+}
+
+header .kanan_atas{
+    /* background-color: aquamarine; */
+    width: 500px;
+}
+
+header .kanan_atas > #nama{
+    font-size: 60px;
+    text-transform: uppercase;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+header .kanan_atas > #jurusan{
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 20px;
+    letter-spacing: 4px;
+    margin-bottom: 15px;
+}
+
+
+header .kanan_atas > img{
+    border-radius: 30%;
+}
+
+/* sosmed atas kanan */
+.kanan_atas > .sosmed{
+    display: flex;
+    justify-content: space-between;
+}
+
+.kanan_atas #tulisan{
+    line-height: 22px;
+}
+
+.kanan_atas #tulisan a{
+    text-decoration: none;
+    color: black;
+}
+
+.kanan_atas .sosmed  #logo div > img{
+    width: 20px;
+    /* background-color: antiquewhite; */
+}
+.kanan_atas .sosmed  #logo #email img{
+    width: 19px;
+    /* background-color: antiquewhite; */
+}
+.kanan_atas .sosmed  #logo #rumah img{
+    width: 18px;
+    /* background-color: antiquewhite; */
+}
+
+
+/* isi kontent */
+
+main{
+    background-color: #fff;
+    width: 800px;
+    margin: 20px auto;
+    /* height: 1200px; */
+}
+
+main .tentang {
+    margin-left: 15px;
+}
+
+main .tentang h3{
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    text-transform: uppercase;
+    margin-bottom: 5px;
+    padding: 10px;
+}
+
+main .tentang p{
+    background-color: #fff;
+    width: 500px ;
+    word-spacing: 3px;
+}
+main .tentang hr{
+    margin-top: 15px;
+    width: 600px;
+    border-width: 2px;
+    margin-bottom: 15px;
+}
+
+
+
+/* bawah */
+main .bawah{
+    display: flex;
+    /* border: 2px solid black; */
+    width: 750px;
+    height: 200px;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    text-transform: uppercase;
+    margin-bottom: 5px;
+    margin-bottom: 15px;
+    padding: 10px;
+    margin-left: 15px;
+    justify-content: space-around;
+    flex-wrap: wrap;
+    /* background-color: aqua; */
+    /* align-content: center; */
+
+}
+
+main hr{
+    margin-top: 15px;
+    width: 150px;
+    border-width: 2px;
+    
+}
+
+main .bawah .kiri, 
+main .bawah .kanan {
+    /* background-color: red; */
+    width: 300px;
+}
+
+main .bawah .kiri2{
+    margin-top: 15px;
+}
+
+
+
+/* formulir */
+main .formulir{
+    margin-top: 100px;
+}
+
+button:hover{
+    background-color: chartreuse;
+    font-size: 15px;
+    font-size: 20px;
+}
+
+button:active{
+    background-color: brown;
+}

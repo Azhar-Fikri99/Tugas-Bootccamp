@@ -1,0 +1,95 @@
+/* body{
+    margin: 0
+} */
+
+/* h1{
+    /* cek lagi di browser, inspek nya */
+    /* margin: 0; */ 
+/* } */
+
+/* atau bisa juga seperti ini tulis nya */
+/* kalau tulis pakai * (bintang)
+arti nya : semua tag akan terkena dampak nya
+dari header ,body (termasuk kontent) sampai footer 
+ini di sebut CSS reset
+*/
+
+*{
+    margin: 0;
+    padding: 0;
+}
+
+
+h1{
+    text-align: center;
+}
+
+/* cara bikin kotak */
+.kotak{
+    display: flex;
+    /* kalau row tidak ada perubahan nya, sama saja tanpa row */
+    /* flex-direction: row; */
+    /* flex-direction: column; */
+    border: 1px solid #000;
+    /* width: 400px; */
+    width: 600px;
+
+    /* ingat : height pada parent itu kalau tidak ada height nya maka dia akan mengikuti tinggi child nya
+               height pada parent itu kalau tidak ada width nya umum nya 100%
+    
+    */
+    /* height: 100px; */
+    /* flex-wrap: wrap; */
+
+
+    /* biar ketengah */
+    margin: 0 auto;
+
+    /* justyfy content */
+    justify-content: space-evenly;
+}
+
+/* 
+pakai logika :
+kan parent nya 400px dan child nya 100
+maka dia akan ikut mengecil
+Solusi pakai wrap
+
+kalau mau ketengah pakai margin atas bawah 0
+syarat nya harus ada width nya
+
+.kotak{
+    display: flex;
+  border: 1px solid #000;
+    width: 4000px;
+    height: 200px;
+    flex-wrap: ;
+
+}
+*/
+
+div > div{
+    width: 100px;
+    /* height: 100px; */
+}
+
+.kotak1{
+    background-color: lightblue;
+}
+
+.kotak2{
+    background-color: lightcoral;
+}
+
+.kotak3{
+    background-color: lightgray;
+}
+
+.kotak4{
+    background-color: lightgreen;
+}
+
+
+.kotak5{
+    background-color: lightsalmon;
+}

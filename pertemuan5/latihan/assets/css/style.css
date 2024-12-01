@@ -1,0 +1,103 @@
+/* ingat : sebelum melakukan css, ini harus dilakukan di awal */
+/* css reset biar tidak kena Default Style */
+
+/* kalau pakai ul li nanti titik atau bullet nya kegeser ke kanan 
+    bukan hilang
+*/
+*{
+    margin: 0;
+    padding: 0;
+}
+
+header{
+    display: flex;
+    justify-content: space-between;
+    /* kalau mau modifikasi justify-content nya
+    pakai between dan margin
+    justify-content: space-around
+    */
+    /* margin:20px 50px; */
+    /* ingat : kalau margin itu gak ikut warna
+               kalau padding itu ikut warna
+    */
+    background-color: gainsboro;
+    padding-top: 20px;
+    padding-bottom: 20px;
+    padding-left: 50px;
+    padding-right: 50px;
+    align-items: center;
+}
+
+
+/* kenapa ul nya ?
+kaerna child child nya nya ada di ul
+*/
+ul {
+    display: flex;
+    list-style-type: none;
+    /* buat jarak antar link
+    bisa pakai margin, tapi di li bukan ul
+    */
+    /* bisa pakai width, misal :500px */
+    
+    /* bisa juga pakai gap, yang sering dipakai guru nya */
+    gap: 50px;
+}
+
+a{
+    color:#000;
+    text-decoration: none;
+}
+
+
+
+
+
+
+/* kita masuk ke bagian main   */
+/* kalau kita mengatur salah satu sisi gambar nya, maka sisi yang lain ngikutin
+   contoh : width: 200px;
+*/
+main{
+    display: flex;
+    /* ini hasil nya kebalik
+    solusi nya ada 2
+    yaitu : 1. kita balik posisi struktur html nya, dari yang di atas kita tukar ke bawah
+            2. pakai flex-direction:row-reverse
+    */
+    /* kalau flex-direction: row;  ini sama aja*/
+    flex-direction: row-reverse;
+    width: 80%;
+    margin: 0 auto;
+    gap: 50px;
+}
+
+article{
+    background-color: lightgoldenrodyellow;
+    width: 60%;
+}
+
+aside{
+    background-color: papayawhip;
+    width: 40%;
+}
+
+aside > div > a{
+
+    display: block;
+    text-decoration: underline;
+}
+
+aside > a{
+    background-color: aliceblue;
+    border: 1px solid;
+    padding: 10px 15px;
+}
+
+img{
+    width: 150px;
+    height: 150px;
+    border-radius: 90%;
+}
+
+
