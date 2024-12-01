@@ -1,0 +1,29 @@
+*{
+    padding: 0;
+    margin: 0;
+}
+
+.container{
+    background-image: url(/img/gambar.jpg);
+    background-repeat: repeat-y;
+    background-color: antiquewhite;
+    display: flex;
+    margin: 30px auto;
+    width: 800px;
+    padding: 100px;;
+}
+
+.container .content{
+    background-color: #fff;
+    margin-right: 12px;
+}
+
+button .login > #tambah{
+    font-family: 'Courier New', Courier, monospace;
+    text-transform: capitalize;
+}
+button:hover{
+    background-color: rgb(214, 54, 126);
+    color: white;
+    font-size: 16px;
+}
