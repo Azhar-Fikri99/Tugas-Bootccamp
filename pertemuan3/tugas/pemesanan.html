@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pemesanan</title>
+</head>
+<body>
+
+    
+        <h3>Black Goose Bistro | Pizza-on-Deman</h3>
+    
+        <p>
+        Our 12" wood-fired pizzas are available for delivery. Build your <br> custom pizza and we'll deliver it within an hour
+        </p>
+    
+        <p>Your Information</p>
+         <form action="http://blackgoosebistro.com/pizza.php" method="get" >
+                <label>Name: <input type="text" required minlength="3" name="customername"></label><br>
+                <label>Address: <input type="text" name="address" required></label><br>
+                <label>Telephone Number: <input type="tel" name="telephone" minlength="10" maxlength="13"></label><br>
+                <label>Email: <input type="email" name="email" required></label><br>
+                <label>Delevery Instructions: <br><textarea rows="5" cols="45" name="instructions" maxlength="400" placeholder="no More than 400 character long"></textarea></label><br>
+                
+                <label for=""><span style="font-weight: bold;">Design Your Dream Pizza: </span></label><br>
+                <label for="">Pizza specs </label><br>
+                <label><input type="radio" name="crust" >classic White</label><br>
+                <label><input type="radio" name="crust"> ultiGrain</label><br>
+                <label><input type="radio" name="crust" >Cheese-stuffed crust</label><br>
+                <label><input type="radio" name="crust" >Gluten-free</label><br>
+
+                <label>Toppings(Choose as many as you want) </label><br> 
+                  <label> <input type="checkbox" name="toppings[]" checked value="red_sauce">Red Sauce</label><br>
+                  <label><input type="checkbox" name="toppings[]" id="" value="White Sauce">White Sauce</label><br>
+                  <label> <input type="checkbox" name="toppings[]" value="Mozzarella">Mozzarella Cheese</label><br>
+                  <label><input type="checkbox" name="toppings[]" id="" value="Pepperoni">Pepperoni</label><br>
+                  <label><input type="checkbox" name="toppings[]" id="" value="Mushrooms">Mushrooms</label><br>
+                  <label><input type="checkbox" name="toppings[]" id="" value="Pepperoni">Peppers</label><br>
+                  <label><input type="checkbox" name="toppings[]" id="" value="Anchovies">Anchovies</label><br>
+
+                  <br>
+                  <label>Number</label><br>
+                  <label>How Many Pizzas: </label>
+                  <select name="pizzas" id="">
+                    <option value="1">1</option>
+                    <option value="2">2</option>
+                    <option value="3">3</option>
+                    <option value="4">4</option>
+                    <option value="5">5</option>
+                    <option value="6">6</option>
+                  </select>
+                  <br>
+                <button type="submit">Kirim</button>
+                <button type="reset">Reset</button>
+         </form>
+        </body>
+</html>
