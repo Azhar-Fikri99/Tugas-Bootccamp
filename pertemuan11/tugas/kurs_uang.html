@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kurs Uang</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    
+<div class="container">        
+    <fieldset>
+        <legend>Kalkulator kurs | Konversi Mata Uang </legend>
+        
+        <label for="uang_asing">Nilai Awal</label>   
+            <input type="text" name="" id="uang_asing" onchange="conversi()"> 
+        <label for="nilaiTukar">Dari</label>
+        <select name="" id="nilaiTukar" onchange="conversi()">
+                <!-- <option value="">--Pilih Kurs Mata Uang Asing ----</option> -->
+                 <optgroup label="-----Pilih Kurs Mata Uang Asing----"> 
+                <option value="UStoRp" >USD ke Rupiah</option>
+                <option value="SGtoRp">SGD ke Rupiah</option>
+                <option value="RtoRp">Ringgit ke Rupiah</option>
+                <option value="YtoRp">Yen ke Rupiah</option>
+                <option value="EUtoRp">Euro ke Rupiah</option>
+                <option value="RoRp" selected>Riyal ke Rupiah</option>
+                </optgroup>
+        </select>
+        <label for="rupiah">Nilai Rupiah</label>   
+        <input type="text" name="" id="rupiah" onchange="invers()">
+
+    </fieldset>
+</div>
+ <script src="kurs.js"></script>
+</body>
+</html>
