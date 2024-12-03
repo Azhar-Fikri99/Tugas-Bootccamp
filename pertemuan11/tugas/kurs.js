@@ -6,7 +6,8 @@ function conversi(){
 
 let tukar = document.getElementById("nilaiTukar").value;
 let hasil = null;
-kita ambil nilai dari select
+// kita ambil nilai dari select
+
 if(tukar === "UStoRp"){
      hasil = asing * 15937;
 }else if(tukar === "SGtoRp"){
