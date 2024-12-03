@@ -2,7 +2,7 @@
 function conversi(){
   let asing =  document.getElementById("uang_asing").value;
   
-  let hasil = asing * 15937;
+  // let hasil = asing * 15937;
 
 let tukar = document.getElementById("nilaiTukar").value;
 let hasil = null;
