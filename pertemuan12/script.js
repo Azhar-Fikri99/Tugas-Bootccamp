@@ -18,10 +18,8 @@ function parkir(){
     let selisihWaktu = jamKeluar - jamMasuk ;
     let harga_1jam = 1000;
     let harga_2jam = 3000;
-    let duaJamPertama = 2;
-    let jamHarga =  (selisihWaktu * 1000) + 1000 ;
-    let tambahnHarga = harga_1jam + harga_2jam;
-    
+    let tambahanHarga = 1000;
+    let jamHarga =  (selisihWaktu * 1000) + tambahanHarga ;
 
     if(selisihWaktu <= 2){        
         let hasil2 = document.getElementById("harga").innerHTML = ": BIAYA PARKIR " + harga_2jam;
@@ -29,3 +27,4 @@ function parkir(){
         let hasil2 = document.getElementById("harga").innerHTML = ": BIAYA PARKIR " + jamHarga;
     }
 }
+
