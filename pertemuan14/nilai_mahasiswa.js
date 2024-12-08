@@ -14,7 +14,7 @@ class NilaiMahasiswa{
         // this.nilai2 = new Nilai(mata_kuliah, nilai);
         // Kita ubah ke resta
         this.mahasiswa2 = new Mahasiswa(...resta);
-        this.nilai3 = new Nilai([4], resta[5]);
+        this.nilai3 = new Nilai(resta[4], resta[5]);
     }
 }
 
