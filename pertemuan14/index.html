@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        h1{
+            text-align: center;
+        }
+        table{
+            margin: 20px auto;
+            border: 2;
+        }
+    </style>
+</head>
+<body>
+    <h1>Daftar Mahasiswa</h1>
+    <table border="1">
+        <thead>
+            <th>No.</th>
+            <th>Nama</th>
+            <th>NIM</th>
+            <th>IPK (Predikat)</th>
+            <th>Mata Kuliah</th>
+            <th>Nilai</th>
+            <th>Grade</th>
+            <th>Hasil</th>
+        </thead>
+        <tbody id="data-mahasiswa">
+
+        </tbody>
+    </table>
+
+    <script type="module">
+    import NilaiMahasiswa from "./nilai_mahasiswa.js"
+        // buat object NilaiMahasiswa
+        // id,nama,nim, ipk, jenisKelamin , mata_kuliah, nilai
+    const mahasiswa = [
+     new NilaiMahasiswa(1, "John Doe", "0110221231", 3.5, "Laki-Laki", "Matematika", 85),
+     new NilaiMahasiswa(2, "Jane Smith", "0110221231", 3.5, "Perempuan", "Fisika", 51),
+     new NilaiMahasiswa(3, "Michael Johnson", "0110221231", 2.8,'Laki-Laki',"Kimia", 68),
+     new NilaiMahasiswa(4, "Emily Davis", "0212230546", 3.9,'Perempuan', "Biologi", 53),
+     new NilaiMahasiswa(5, "David Lee", "0112033659", 3.0, 'Laki-Laki',"Sejarah", 75)
+    ];
+    console.log(mahasiswa);
+
+    //pakai forEach
+    // mahasiswa.forEach(element =>{
+    //     console.log("id : " + element.id)
+    //     console.log(`Nama : ${element.mahasiswa2.name}`)
+    //     console.log(`NIM : ${element.mahasiswa2.nim}`)
+    // });
+    // Tampilkan data mahasiswa ke dalam tabel
+const tableBody = document.getElementById("data-mahasiswa");
+
+mahasiswa.forEach((element, index) => {
+    const row = `
+        <tr>
+            <td>${index + 1}</td>
+            <td>${element.mahasiswa2.name}</td>
+            <td>${element.mahasiswa2.nim}</td>
+            <td>${element.mahasiswa2.ipk} (${element.mahasiswa2.predikat()})</td>
+            <td>${element.nilai3.mata_kuliah}</td>
+            <td>${element.nilai3.nilai}</td>
+            <td>${element.nilai3.grade()}</td>
+            <td>${element.nilai3.getHasil()}</td>
+        </tr>
+    `;
+    tableBody.innerHTML += row;
+});
+    </script>
+    
+</body>
+</html>
