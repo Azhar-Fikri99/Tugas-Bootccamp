@@ -2,6 +2,7 @@
 class Balok {
 
     constructor(panjang, lebar, tinggi){
+        // this.panjang2=  Number(panjang);
         this.panjang2= panjang;
         this.lebar2 = lebar;
         this.tinggi2 = tinggi;
@@ -12,7 +13,7 @@ class Balok {
     }
 
     kelilingBalok(){
-        return 4 * [ (this.panjang2 * 1)+ (this.lebar2 * 1) + (this.tinggi2 * 1) ]; 
+        return 4 *  ((this.panjang2)+ (this.lebar2) + (this.tinggi2)) ; 
     }
 
     luasBalok(){

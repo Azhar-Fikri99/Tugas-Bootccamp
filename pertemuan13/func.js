@@ -2,9 +2,9 @@ function balok(){
 
     // kita buat oop nya
 
-    let panjangg = document.getElementById("panjang").value;
-    let lebarr = document.getElementById("lebar").value;
-    let tinggii = document.getElementById("tinggi").value;
+    let panjangg = Number(document.getElementById("panjang").value);
+    let lebarr = Number(document.getElementById("lebar").value);
+    let tinggii = Number(document.getElementById("tinggi").value);
 
 
     // buat 1 object panjang
