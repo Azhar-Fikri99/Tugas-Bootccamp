@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kalkulator</title>
+    <!-- jquery biar DOM nya ringkas -->
+</head>
+<body>
+    <!-- ini kita paste dari pertemuan 12 ke pertemuan 15 ini -->
+     <!-- type nya bebas -->
+    <form action="">
+        <input type="number" name="" id="nilai1">
+        <p>+</p>
+        <input type="number" name="" id="nilai2">
+        <p>=</p>
+        <input type="number" name="" id="nilaiAkhir">
+    </form>    
+
+<!-- ini kita pakai cdn, yang jsDeliver -->
+<script src="https://cdn.jsdelivr.net/npm/jquery@3.7.1/dist/jquery.min.js"></script>
+<script>
+    $("document").ready(function(){
+ 
+        // kalau masih satu aksi maka bisa langsung pakai koma, selector tersebut
+        // ini kalau pakai lebih spesifik, pakai on (nama tag nya)
+        $("#nilai1, #nilai2").on("input", function(){
+          // kita panggil selector nya
+          // val untuk mengambil input, dari nilai input
+            let n1 = Number($("#nilai1").val());
+            let n2 = Number($("#nilai2").val());
+          //kita buat selector lagi untuk nilaiAkhir
+            $("#nilaiAkhir").val(n1+n2);
+        });
+    });
+</script>
+</body>
+</html>

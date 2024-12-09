@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ubah Warna</title>
+    
+<script src="https://cdn.jsdelivr.net/npm/jquery@3.7.1/dist/jquery.min.js"></script>
+</head>
+<body>
+    <!-- info : kalau mau masukin ke console, pakai javascript biasa aja.
+                kalau jqueray masuk nya ke DOM 
+    -->
+
+<h1>Event Handling</h1>
+<button>Hello</button>
+<br>
+<span id="hello"></span>
+<input class="ubahWarnaBtn" type="button" value="Ubah Warna">
+
+<script>
+    
+    // $(document).ready(function(){
+    $(document).ready(function(){
+        $("button").click(function(){
+
+            // di DOM, kan kita pakai .innerHTML
+            // kalau di jQuery pakai .html
+
+
+            // kita bisa langsung, di tambahakan css nya
+            // $("#hello").html("Hello Fikri").css("background", "yellow");
+            $("#hello").html("Hello Fikri")
+            $("#hello").css("background", "aqua");
+
+        });
+
+        $(".ubahWarnaBtn").click(function(){
+            // kita isi variable array, yang ada 10 warna
+            // ini tinggal di salin aja dari pertemuan 11
+            let random = Math.round(Math.random() * 4);
+            let colors = ["aqua","lightgreen","#4287f5","pink","salmon"];
+      
+            // obj.style.background = colors[random] ;
+            // masukin variable variable nya, kayak di bawah
+            $("body").css("background",  colors[random]);
+            // $("body").css("background", "yellow");
+            
+        })
+    });
+
+</script>
+</body>
+</html>
