@@ -1,0 +1,204 @@
+procedure berfungsi untuk menfilter hal hal yang terlarang (misal gak sesuai dengan umur, beli pakaian bisa kita filter)
+
+procedure harus di jalankan, kayak function
+jadi ketika kita insert data, kan ada perubahan data, itu procedure nya wajib di panggil lagi
+
+DELIMITER //					-> simbol nya bebas, dan berapa banyak nya bebas
+CREATE procedure getAllProducts()
+BEGIN
+SELECT * FROM produk $$
+END //
+
+//=============================================
+info : kalau kita mau masukin view ke dalam procedure, itu kita tidak bisa memasukkan ke paramter, langsung ke BEGIN aja
+
+
+DELIMITER //
+CREATE PROCEDURE getCustomerBYGender(
+	IN GENDER char(1)			-> ini parameter, tipe data nya di sesuaikan dengan table nya, kalau char(5)
+)								  maka 
+BEGIN
+	SELECT * FROM pelanggan WHERE jk = gender;
+END //
+
+Call getCustomerByGender('l');
+
+kalau perempuan tinggal ganti L menjadi P
+
+
+//=============================================
+DELIMITER $
+
+CREATE PROCEDURE getTotalProductPurchase(
+IN id_prod INT,
+OUT total INT
+)
+BEGIN
+SELECT SUM(jumlah) INTO total FROM pembelian WHERE produk_id = id_prod;
+END $
+
+CALL getTotalProductPurchase(2, @total);			-> 2 nya dari produk_id
+								   @total disebut sesion variable
+
+SELECT @total AS total_product_purchased;
+
+
+//=============================================
+DELIMITER /
+
+CREATE PROCEDURE updateStockProduct(
+IN id_prod INT,
+IN jumlah INT
+)
+BEGIN
+UPDATE produk SET stok = stok + jumlah WHERE id = id_prod;
+END /
+
+DELIMITER ;
+CALL updateStockProduct(1,10);			-> ini kayak function javascript (1 nya id_prod) (10 adalah jumlah stok nya)
+
+
+//=============================================
+DELIMITER /
+
+CREATE PROCEDURE getTotalOrder()
+BEGIN
+DECLARE totalOrder INT DEFAULT 0;
+SELECT COUNT(*) INTO totalOrder From pesanan;
+SELECT totalOrder;
+END /
+
+DELIMITER ;
+CALL getTotalOrder();
+
+output nya : langsung keluar 
+
+info : kalau out itu pakai at yaa
+
+//=============================================
+Listing stored procedure
+
+SHOW PROCEDURE status;
+
+
+//=============================================
+info : kalau function itu di panggil nya pakai select
+       kalau procedure itu dipanggil nya pakai call
+
+
+INFO : di bawah ini si function nya tidak mempunyai parameter
+
+DELIMITER $$
+
+CREATE FUNCTION helo()
+RETURNS TEXT
+BEGIN
+	RETURN 'Selamat Belajra';
+END $$
+
+DELIMITE ;
+SELECT helo()
+
+
+//=============================================
+DELIMITER $$
+
+CREATE FUNCTION gender(jk char(1))			-> nama paramter nya bebas
+RETURNS VARCHAR(20)
+BEGIN
+DECLARE txt_jk VARCHAR(20);
+CASE jk
+WHEN 'L' THEN
+SET txt_jk = 'laki-laki';
+else
+SET txt_jk = 'Perempuan';
+END CASE;
+RETURN txt_jk;
+END $$
+
+DELIMITER ;
+
+SELECT gender('L');
+SELECT gender('L');		-> OUTPUT NYA : perempuan, karena else
+
+
+
+SELECT id, nama, gender(jk), tmp_lahir FROM pelanggan;		-> ini gender(jk) jk nya dari kolom table pelanggan
+
+
+
+//=============================================
+info : funtcion yang baik adalah yang tugas nya hanya 1
+info : di bahasa pemrograman apapun return di tulis 1 kali, misal : ada 2 reutrn sekaligus itu pasti error
+
+Menampilkan pelanggan berdasarkan kota -> paramter
+id, nama, gender(jk)
+
+
+
+
+//=============================================
+table loking itu masuk nya ddl
+
+transaction itu sama kaya gitu, bisa buat cabang, bahkan rollback
+
+START Transaction;
+SELECT * FROM pelanggan;
+SELECT * FROM produk;
+
+INSERT INTO pesanan VALUES('', DATE(NOW()), 0, 1);
+insert into pesanan_items VALUES('', 1,12,5,504000),(DEFAULT, 10,12,2,1334000);
+COMMIT;
+
+//=============================================
+
+savepoint : itu ketika kita commit itu kita di simpan dulu, gak langsung di eksekusi
+	    Kayak di commit
+
+INFO : KALAU mau rollback
+START TRANSACTION
+DELETE FROM pesanan_items;
+ROLLBACK ;
+
+
+//=============================================
+Rollback to savepoint 
+START TRANSACTION
+INSERT into pesanan VALUES			-> NANTI ini error karena punya relasi nya
+(DEFAULT, DATE(NOW()), 0, 2),
+(DEFAULT, DATE(NOW()), 0, 2),
+(DEFAULT, DATE(NOW()), 0, 2)
+
+SAVEPOINT sp1			-> sp1 adalah identifier nya
+DELETE FROM pesanan;
+ROLLBACK TO SAVEPOINT SP1
+COMMIT;
+
+
+inti nya : digunakan jika ada perubahan baik table maupun data nya
+
+//=============================================
+LOCKING			
+SIM -> 30 Menit
+
+select CONNECTION_id();					-> port nya yang terhubung, ini ngacak
+
+INSERT INTO jenis_produk VALUES
+(default, 'otomotif');
+
+
+LOCK TABLE jenis_produk READ;
+
+
+INSERT INTO jenis_produk VALUES		-> Kita coba insert lagi
+(default, 'otomotif');			   output : error
+
+
+
+UNLOCK TABLES;				-> biasa nya untuk 1 table saja
+
+
+KAPAN READ ? ketika sebuah table hanya boleh di read aja, dan privilage yang terbatas
+KAPAN WRITE ? ketika sebuah table bisa melakukan CRUD (Create, READ, UPDATE, Delete)
+
+

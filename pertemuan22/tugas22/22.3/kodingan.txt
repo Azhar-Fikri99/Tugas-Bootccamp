@@ -1,0 +1,74 @@
+DELIMITER $
+
+CREATE PROCEDURE pro_naikan_harga(
+IN id_produk INT,
+IN presentase_kenaikan INT
+)
+BEGIN
+UPDATE produk SET harga_jual =  harga_jual * presentase_kenaikan WHERE jenis_produk_id = id_produk;
+END $
+
+DELIMITER ;
+CALL pro_naikan_harga(2, 45/100);
+
+//===========================================
+
+1
+
+DELIMITER /
+
+CREATE PROCEDURE pro_naikan_harga(
+IN id_prod INT,
+IN presentase_kenaikan INT
+)
+BEGIN
+UPDATE produk SET harga_jual= harga_jual + (harga_jual * presentase_kenaikan) WHERE id = id_prod;
+END /
+
+DELIMITER ;
+CALL pro_naikan_harga(3, 45);			
+
+//====================================
+function
+
+DELIMITER $
+
+CREATE FUNCTION umur(umur date)
+RETURNS DATE
+BEGIN
+DECLARE det_umur DATE;
+
+  RETURN YEAR(NOW()) - 2003;
+END $
+
+
+DELIMITER ;
+
+
+
+//====================================
+INSERT INTO produk VALUES
+(Default, 'L005', 'HP Samsung', 450000, 600000, 10, 4, 5), 
+(Default, 'L006', 'Notebook Samsung', 450000, 600000, 5, 4, 5),
+(Default, 'L007', 'Macbook', 450000, 600000, 7, 4, 5);
+
+INSERT INTO pembayaran VALUES
+(default, 'P001', '2024-12-12', 14000,  3, 2);
+
+
+//====================================
+22.2
+
+DELIMITER $
+
+CREATE PROCEDURE kurangi_stok()
+IN produk_id INT,
+IN jumlah_pesanan
+)
+BEGIN
+ UPDATE produk SET stok = stok - jumlah_pesanan WHERE id = produk_id AND stok >=jumlah pesanan;
+END $
+
+DELIMITER ;
+
+CALL kurangi_stok(1, 10)
